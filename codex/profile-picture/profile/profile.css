@@ -1,0 +1,415 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f4f4f9, #e0e0e0);
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s ease;
+}
+
+/* Profile Section */
+.profile-section {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.profile-section .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Profile Header Icons */
+.profile-section .profile-header .close-profile-icon,
+.profile-section .profile-header .options-icon,
+.profile-section .profile-header .add-icon,
+.profile-section .profile-header .gear-icon {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #000;
+}
+
+.profile-section .options-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile-section .add-dropdown,
+.profile-section .options-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1001;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.profile-section .add-dropdown.active,
+.profile-section .options-dropdown.active {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.profile-section .add-dropdown a,
+.profile-section .options-dropdown a {
+    color: #333;
+    padding: 15px 25px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section .add-dropdown a::before,
+.profile-section .options-dropdown a::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.profile-section #addVideo::before {
+    background-image: url('icons/video-icon.png');
+}
+
+.profile-section #addShort::before {
+    background-image: url('icons/short-icon.png');
+}
+
+.profile-section #addPost::before {
+    background-image: url('icons/post-icon.png');
+}
+
+.profile-section #logout::before {
+    background-image: url('icons/logout-icon.png');
+}
+
+.profile-section #deactivate::before {
+    background-image: url('icons/deactivate-icon.png');
+}
+
+.profile-section .profile-content {
+    padding: 20px;
+    background: rgba(244, 244, 249, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+}
+
+.profile-section .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profile-section .profile-photo-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #000;
+}
+
+.profile-section .profile-details {
+    text-align: center;
+}
+
+.profile-section .profile-details .username {
+    font-size: 2em;
+    margin: 0;
+    color: #333;
+}
+
+.profile-section .profile-details .followers {
+    color: #555;
+}
+
+/* Edit Profile Button */
+.profile-section .edit-profile-btn {
+    background: #fff;
+    color: #000;
+    border-radius: 25px;
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section .edit-profile-btn:active {
+    transform: scale(0.95);
+}
+
+/* Update Profile Button */
+.profile-section .update-profile-btn {
+    background: #333;
+    color: #fff;
+    border-radius: 25px;
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section .update-profile-btn:active {
+    transform: scale(0.95);
+}
+
+.profile-section .thin-line {
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+.profile-section .additional-info {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profile-section .additional-info p {
+    margin: 10px 0;
+    color: #333;
+    text-align: center;
+}
+
+.profile-section .additional-info p span {
+    font-weight: bold;
+}
+
+.profile-section .profile-media {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.profile-section .media-section {
+    flex: 1;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section .media-section h3 {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Profile Media Items */
+.profile-section .video-item,
+.profile-section .short-item,
+.profile-section .post-item,
+.profile-section .like-item,
+.profile-section .save-item,
+.profile-section .comment-item {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f4f4f9;
+    border-radius: 5px;
+    display: none;
+}
+
+.profile-section .content-section.active .video-item,
+.profile-section .content-section.active .short-item,
+.profile-section .content-section.active .post-item,
+.profile-section .content-section.active .like-item,
+.profile-section .content-section.active .save-item,
+.profile-section .content-section.active .comment-item {
+    display: block;
+}
+
+/* Responsive Styles */
+@media (min-width: 600px) {
+    .profile-section .profile-info {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .profile-section .profile-details {
+        text-align: left;
+    }
+
+    .profile-section .edit-profile-btn {
+        margin-top: 0;
+    }
+
+    .profile-section .additional-info p {
+        text-align: left;
+    }
+
+    .profile-section .profile-media {
+        flex-direction: row;
+    }
+
+    .profile-section .media-section {
+        margin: 0 10px;
+    }
+}
+
+@media (min-width: 900px) {
+    .profile-section .profile-info {
+        padding: 30px;
+    }
+
+    .profile-section .profile-photo-large {
+        width: 140px;
+        height: 140px;
+    }
+
+    .profile-section .profile-details .username {
+        font-size: 2.2em;
+    }
+
+    .profile-section .edit-profile-btn,
+    .profile-section .update-profile-btn {
+        padding: 10px 30px;
+    }
+
+    .profile-section .media-section {
+        padding: 20px;
+    }
+}
+
+/* Input styles for editing profile info */
+.profile-section .edit-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #6200ea;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.profile-section .edit-input:focus {
+    border-bottom: 2px solid #6200ea;
+    outline: none;
+    background-color: white;
+}
+
+.profile-section .edit-input:blur {
+    background-color: transparent;
+}
+
+/* Profile Tabs */
+.profile-section .profile-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.profile-section .tabs {
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    overflow-x: auto; /* Ensure horizontal scrolling */
+}
+
+.profile-section .tab {
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #555;
+    padding: 10px;
+    transition: color 0.5s ease;
+    flex: 0 0 auto; /* Allow tabs to size dynamically */
+    text-align: center;
+    min-width: 100px; /* Ensure minimum width for tabs */
+}
+
+.profile-section .tab.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+.profile-section .tab-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    background: rgba(244, 244, 249, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.profile-section .content-section {
+    display: none;
+}
+
+.profile-section .content-section.active {
+    display: block;
+}
+
+.profile-section .media-item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f4f4f9;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Adjustments for tab visibility and scrolling */
+.profile-section .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Ensure horizontal scrolling */
+}
+
+.profile-section .tabs::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+.profile-section .tabs {
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
